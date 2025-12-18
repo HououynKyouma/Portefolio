@@ -37,32 +37,25 @@
 
 <body class="w3-black">
 
-  <!-- Barre latérale -->
+  <!-- Sidebar -->
   <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
     <img src="mafioso2.png" style="width:100%" alt="Avatar">
 
     <a href="#home" class="w3-bar-item w3-button w3-padding-large w3-black">
-      <i class="fa fa-home w3-xxlarge"></i>
-      <p>ACCUEIL</p>
+      <i class="fa fa-home w3-xxlarge"></i><p>ACCUEIL</p>
     </a>
-
     <a href="#about" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-      <i class="fa fa-user w3-xxlarge"></i>
-      <p>À PROPOS</p>
+      <i class="fa fa-user w3-xxlarge"></i><p>À PROPOS</p>
     </a>
-
     <a href="#projects" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-      <i class="fa fa-folder-open w3-xxlarge"></i>
-      <p>PROJETS</p>
+      <i class="fa fa-folder-open w3-xxlarge"></i><p>PROJETS</p>
     </a>
-
     <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-      <i class="fa fa-envelope w3-xxlarge"></i>
-      <p>CONTACT</p>
+      <i class="fa fa-envelope w3-xxlarge"></i><p>CONTACT</p>
     </a>
   </nav>
 
-  <!-- Contenu principal -->
+  <!-- Main -->
   <div class="w3-padding-large" id="main">
 
     <!-- Accueil -->
@@ -79,16 +72,15 @@
       <p>
         Je suis élève en filière STI2D et je m’intéresse à la technologie,
         à l’informatique et aux projets techniques.
-        Ce portfolio a été réalisé dans le cadre scolaire.
       </p>
     </div>
 
-    <!-- PROJETS -->
+    <!-- Projets -->
     <div class="w3-padding-64 w3-content" id="projects">
       <h2 class="w3-text-light-grey">Mes projets</h2>
       <hr style="width:200px" class="w3-opacity">
 
-      <!-- PROJET ROBOCUP -->
+      <!-- RoboCup -->
       <div class="project-section">
         <h3 class="w3-text-light-grey">Projet RoboCup – 1STI2D</h3>
 
@@ -105,38 +97,29 @@
 
         <div class="project-images">
           <img src="chassis.jpg" class="w3-image" alt="Châssis du robot">
-          <img src="chassisdurorobot.jpg" class="w3-image" alt="Châssis du robot assemblé">
-          <img src="diagramme.jpg" class="w3-image" alt="Diagramme du projet">
+          <img src="chassisdurobot.jpg" class="w3-image" alt="Robot tenu à la main">
+          <img src="chassisdurorobot.jpg" class="w3-image" alt="Châssis assemblé">
+          <img src="diagramme.jpg" class="w3-image" alt="Diagramme">
           <img src="diagramme_exigence.jpg" class="w3-image" alt="Diagramme d'exigences">
         </div>
       </div>
 
-      <!-- PROJET PORTFOLIO -->
+      <!-- Portfolio -->
       <div class="project-section">
         <h3 class="w3-text-light-grey">Projet Portfolio</h3>
-
-        <div class="project-text w3-text-grey">
-          <p>
-            Création de mon portfolio personnel en HTML, CSS et JavaScript.
-            Le site est hébergé sur GitHub Pages et contient un formulaire de contact fonctionnel.
-            Ce projet m’a permis d’apprendre les bases du développement web.
-          </p>
-        </div>
+        <p class="w3-text-grey">
+          Création de mon portfolio personnel en HTML, CSS et JavaScript,
+          hébergé sur GitHub Pages.
+        </p>
       </div>
 
-      <!-- PROJETS À VENIR -->
+      <!-- À venir -->
       <div class="project-section">
         <h3 class="w3-text-light-grey">Projets à venir</h3>
-
-        <div class="project-text w3-text-grey">
-          <p>
-            D’autres projets seront ajoutés au cours de l’année,
-            notamment des projets techniques liés à la filière STI2D
-            et des projets personnels.
-          </p>
-        </div>
+        <p class="w3-text-grey">
+          D’autres projets seront ajoutés au cours de l’année.
+        </p>
       </div>
-
     </div>
 
     <!-- Contact -->
@@ -146,12 +129,12 @@
 
       <form id="contactForm">
         <p><input class="w3-input w3-padding-16" type="text" name="name" placeholder="Nom" required></p>
-        <p><input class="w3-input w3-padding-16" type="email" name="email" placeholder="Adresse e-mail" required></p>
+        <p><input class="w3-input w3-padding-16" type="email" name="email" placeholder="Email" required></p>
         <p><input class="w3-input w3-padding-16" type="text" name="subject" placeholder="Sujet" required></p>
         <p><textarea class="w3-input w3-padding-16" name="message" placeholder="Message" required></textarea></p>
 
         <p>
-          <button id="sendBtn" class="w3-button w3-light-grey w3-padding-large" type="submit">
+          <button class="w3-button w3-light-grey w3-padding-large" type="submit">
             <i class="fa fa-paper-plane"></i> ENVOYER
           </button>
         </p>
@@ -159,54 +142,29 @@
         <p id="successMessage" style="display:none; color:lightgreen; font-weight:bold;">
           Message envoyé !
         </p>
-
-        <p id="errorMessage" style="display:none; color:#ff6b6b; font-weight:bold;">
-          Erreur lors de l’envoi du message.
-        </p>
       </form>
     </div>
 
-    <!-- Pied de page -->
-    <footer class="w3-content w3-padding-64 w3-text-grey"></footer>
-
   </div>
 
-  <!-- Script formulaire -->
   <script>
-    (function () {
-      var form = document.getElementById("contactForm");
-      var successMessage = document.getElementById("successMessage");
-      var errorMessage = document.getElementById("errorMessage");
-      var sendBtn = document.getElementById("sendBtn");
+    const form = document.getElementById("contactForm");
+    const successMessage = document.getElementById("successMessage");
 
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
 
-        successMessage.style.display = "none";
-        errorMessage.style.display = "none";
-        sendBtn.disabled = true;
-
-        fetch("https://formspree.io/f/mkowngwr", {
-          method: "POST",
-          body: new FormData(form),
-          headers: { "Accept": "application/json" }
-        })
-        .then(function (response) {
-          if (response.ok) {
-            successMessage.style.display = "block";
-            form.reset();
-          } else {
-            errorMessage.style.display = "block";
-          }
-        })
-        .catch(function () {
-          errorMessage.style.display = "block";
-        })
-        .finally(function () {
-          sendBtn.disabled = false;
-        });
+      fetch("https://formspree.io/f/mkowngwr", {
+        method: "POST",
+        body: new FormData(form),
+        headers: { "Accept": "application/json" }
+      }).then(response => {
+        if (response.ok) {
+          successMessage.style.display = "block";
+          form.reset();
+        }
       });
-    })();
+    });
   </script>
 
 </body>
