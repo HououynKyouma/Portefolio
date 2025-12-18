@@ -16,11 +16,21 @@
     #main {margin-left: 120px}
     @media only screen and (max-width: 600px) { #main {margin-left: 0} }
 
-    .project-card {
+    .project-section {
       background-color: #111;
-      padding: 16px;
-      margin-bottom: 24px;
-      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 48px;
+      border-radius: 10px;
+    }
+
+    .project-text {
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .project-images img {
+      margin-bottom: 16px;
+      border-radius: 6px;
     }
   </style>
 </head>
@@ -46,7 +56,7 @@
       <p>PROJETS</p>
     </a>
 
-    <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <a href="#contact" class="w3-bar-item w3-button w3-button w3-padding-large w3-hover-black">
       <i class="fa fa-envelope w3-xxlarge"></i>
       <p>CONTACT</p>
     </a>
@@ -82,40 +92,64 @@
         à l’informatique et aux projets techniques.
         Ce portfolio a été réalisé dans le cadre scolaire.
       </p>
-
-      <h3 class="w3-text-light-grey w3-padding-16">Compétences</h3>
-
-      <p class="w3-wide">Programmation / Jeux</p>
-      <div class="w3-white"><div class="w3-dark-grey" style="height:28px;width:80%"></div></div>
-
-      <p class="w3-wide">Création de sites web</p>
-      <div class="w3-white"><div class="w3-dark-grey" style="height:28px;width:65%"></div></div>
-
-      <p class="w3-wide">Mathématiques</p>
-      <div class="w3-white"><div class="w3-dark-grey" style="height:28px;width:90%"></div></div>
     </div>
 
-    <!-- Projets -->
+    <!-- PROJETS -->
     <div class="w3-padding-64 w3-content" id="projects">
       <h2 class="w3-text-light-grey">Mes projets</h2>
       <hr style="width:200px" class="w3-opacity">
 
-      <div class="project-card">
-        <h3 class="w3-text-light-grey">Portfolio personnel</h3>
-        <p>Site web réalisé en HTML et CSS, hébergé sur GitHub Pages.</p>
-        <img src="projet1.png" alt="Projet 1" class="w3-image">
+      <!-- PROJET 1 -->
+      <div class="project-section">
+        <h3 class="w3-text-light-grey">Projet RoboCup – 1STI2D</h3>
+
+        <div class="project-text w3-text-grey">
+          <p>
+            Ici tu pourras expliquer le projet RoboCup que tu as réalisé l’année dernière.
+            Par exemple : l’objectif du projet, le travail en groupe, le robot,
+            les contraintes techniques, ce que tu as appris, etc.
+          </p>
+        </div>
+
+        <div class="project-images">
+          <img src="robocup1.png" class="w3-image" alt="RoboCup image 1">
+          <img src="robocup2.png" class="w3-image" alt="RoboCup image 2">
+        </div>
       </div>
 
-      <div class="project-card">
-        <h3 class="w3-text-light-grey">Projet STI2D</h3>
-        <p>Projet technique réalisé en classe dans le cadre de la filière STI2D.</p>
-        <img src="projet2.png" alt="Projet 2" class="w3-image">
+      <!-- PROJET 2 -->
+      <div class="project-section">
+        <h3 class="w3-text-light-grey">Projet Portfolio</h3>
+
+        <div class="project-text w3-text-grey">
+          <p>
+            Création de mon portfolio personnel en HTML, CSS et JavaScript.
+            Le site est hébergé sur GitHub Pages et contient un formulaire de contact fonctionnel.
+            Ce projet m’a permis d’apprendre les bases du développement web.
+          </p>
+        </div>
+
+        <div class="project-images">
+          <img src="portfolio1.png" class="w3-image" alt="Portfolio image 1">
+          <img src="portfolio2.png" class="w3-image" alt="Portfolio image 2">
+        </div>
       </div>
 
-      <div class="project-card">
-        <h3 class="w3-text-light-grey">Projet à venir</h3>
-        <p>D’autres projets seront ajoutés prochainement.</p>
-        <img src="projet3.png" alt="Projet 3" class="w3-image">
+      <!-- PROJET 3 -->
+      <div class="project-section">
+        <h3 class="w3-text-light-grey">Projets à venir</h3>
+
+        <div class="project-text w3-text-grey">
+          <p>
+            D’autres projets seront ajoutés au cours de l’année,
+            notamment des projets techniques liés à la filière STI2D
+            et des projets personnels.
+          </p>
+        </div>
+
+        <div class="project-images">
+          <img src="avenir.png" class="w3-image" alt="Projet à venir">
+        </div>
       </div>
     </div>
 
