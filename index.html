@@ -20,152 +20,114 @@
 
 <body class="w3-black">
 
-  <!-- Icon Bar (Sidebar - hidden on small screens) -->
+  <!-- Sidebar -->
   <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
     <img src="mafioso2.png" style="width:100%" alt="Avatar">
 
     <a href="#home" class="w3-bar-item w3-button w3-padding-large w3-black">
-      <i class="fa fa-home w3-xxlarge"></i>
-      <p>HOME</p>
+      <i class="fa fa-home w3-xxlarge"></i><p>HOME</p>
     </a>
-
     <a href="#about" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-      <i class="fa fa-user w3-xxlarge"></i>
-      <p>ABOUT</p>
+      <i class="fa fa-user w3-xxlarge"></i><p>ABOUT</p>
     </a>
-
     <a href="#photos" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-      <i class="fa fa-eye w3-xxlarge"></i>
-      <p>PHOTOS</p>
+      <i class="fa fa-eye w3-xxlarge"></i><p>PHOTOS</p>
     </a>
-
     <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-      <i class="fa fa-envelope w3-xxlarge"></i>
-      <p>CONTACT</p>
+      <i class="fa fa-envelope w3-xxlarge"></i><p>CONTACT</p>
     </a>
   </nav>
 
-  <!-- Navbar on small screens -->
-  <div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
-    <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
-      <a href="#home" class="w3-bar-item w3-button" style="width:25% !important">HOME</a>
-      <a href="#about" class="w3-bar-item w3-button" style="width:25% !important">ABOUT</a>
-      <a href="#photos" class="w3-bar-item w3-button" style="width:25% !important">PHOTOS</a>
-      <a href="#contact" class="w3-bar-item w3-button" style="width:25% !important">CONTACT</a>
+  <!-- Mobile navbar -->
+  <div class="w3-top w3-hide-large w3-hide-medium">
+    <div class="w3-bar w3-black w3-opacity w3-center w3-small">
+      <a href="#home" class="w3-bar-item w3-button" style="width:25%">HOME</a>
+      <a href="#about" class="w3-bar-item w3-button" style="width:25%">ABOUT</a>
+      <a href="#photos" class="w3-bar-item w3-button" style="width:25%">PHOTOS</a>
+      <a href="#contact" class="w3-bar-item w3-button" style="width:25%">CONTACT</a>
     </div>
   </div>
 
-  <!-- Page Content -->
+  <!-- Content -->
   <div class="w3-padding-large" id="main">
 
-    <!-- Header/Home -->
-    <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
+    <!-- Home -->
+    <header class="w3-container w3-center w3-padding-32" id="home">
       <h1 class="w3-jumbo"><span class="w3-hide-small">I'm</span> Marwane.</h1>
       <p>Jsp.</p>
-      <img src="canvas.png" alt="Header image" class="w3-image" width="992" height="1108">
+      <img src="canvas.png" class="w3-image">
     </header>
 
-    <!-- About Section -->
-    <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
+    <!-- About -->
+    <div class="w3-content w3-text-grey w3-padding-64" id="about">
       <h2 class="w3-text-light-grey">My Name</h2>
       <hr style="width:200px" class="w3-opacity">
       <p>inshallah y'aura some text abt me</p>
 
-      <h3 class="w3-padding-16 w3-text-light-grey">My Skills</h3>
+      <h3 class="w3-text-light-grey w3-padding-16">My Skills</h3>
 
       <p class="w3-wide">Games</p>
-      <div class="w3-white">
-        <div class="w3-dark-grey" style="height:28px;width:80%"></div>
-      </div>
+      <div class="w3-white"><div class="w3-dark-grey" style="height:28px;width:80%"></div></div>
 
       <p class="w3-wide">Website</p>
-      <div class="w3-white">
-        <div class="w3-dark-grey" style="height:28px;width:65%"></div>
-      </div>
+      <div class="w3-white"><div class="w3-dark-grey" style="height:28px;width:65%"></div></div>
 
       <p class="w3-wide">Math</p>
-      <div class="w3-white">
-        <div class="w3-dark-grey" style="height:28px;width:90%"></div>
-      </div>
+      <div class="w3-white"><div class="w3-dark-grey" style="height:28px;width:90%"></div></div>
     </div>
-    <!-- End About Section -->
 
-    <!-- Photos Section -->
-    <div class="w3-padding-64 w3-content" id="photos">
-      <h2 class="w3-text-light-grey">My Photos</h2>
-      <hr style="width:200px" class="w3-opacity">
-
-      <div class="w3-row-padding" style="margin:0 -16px">
-        <div class="w3-half">
-          <img src="/w3images/wedding.jpg" style="width:100%" alt="">
-          <img src="/w3images/rocks.jpg" style="width:100%" alt="">
-          <img src="/w3images/sailboat.jpg" style="width:100%" alt="">
-        </div>
-
-        <div class="w3-half">
-          <img src="/w3images/underwater.jpg" style="width:100%" alt="">
-          <img src="/w3images/chef.jpg" style="width:100%" alt="">
-          <img src="/w3images/wedding.jpg" style="width:100%" alt="">
-          <img src="/w3images/p6.jpg" style="width:100%" alt="">
-        </div>
-      </div>
-    </div>
-    <!-- End Photos Section -->
-
-    <!-- Contact Section -->
-    <div class="w3-padding-64 w3-content w3-text-grey" id="contact">
+    <!-- Contact -->
+    <div class="w3-content w3-text-grey w3-padding-64" id="contact">
       <h2 class="w3-text-light-grey">Contact Me</h2>
       <hr style="width:200px" class="w3-opacity">
 
-      <div class="w3-section">
-        <p><i class="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Béziers, FR</p>
-        <p><i class="fa fa-phone fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Phone: +33 6 70 03 51 75</p>
-        <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Email: marwane.boujaada7@gmail.com</p>
-      </div>
+      <form id="contactForm">
+        <p><input class="w3-input w3-padding-16" type="text" name="name" placeholder="Name" required></p>
+        <p><input class="w3-input w3-padding-16" type="email" name="email" placeholder="Email" required></p>
+        <p><input class="w3-input w3-padding-16" type="text" name="subject" placeholder="Subject" required></p>
+        <p><textarea class="w3-input w3-padding-16" name="message" placeholder="Message" required></textarea></p>
 
-      <p>Let's get in touch. Send me a message:</p>
-
-      <!-- ✅ Working Formspree form -->
-      <form action="https://formspree.io/f/mkowngwr" method="POST">
-        <p>
-          <input class="w3-input w3-padding-16" type="text" name="name" placeholder="Name" required>
-        </p>
-        <p>
-          <input class="w3-input w3-padding-16" type="email" name="email" placeholder="Email" required>
-        </p>
-        <p>
-          <input class="w3-input w3-padding-16" type="text" name="subject" placeholder="Subject" required>
-        </p>
-        <p>
-          <textarea class="w3-input w3-padding-16" name="message" placeholder="Message" required></textarea>
-        </p>
         <p>
           <button class="w3-button w3-light-grey w3-padding-large" type="submit">
             <i class="fa fa-paper-plane"></i> SEND MESSAGE
           </button>
         </p>
+
+        <p id="successMessage" style="display:none; color:lightgreen; font-weight:bold;">
+          Message envoyé !
+        </p>
       </form>
-      <!-- End Contact Section -->
     </div>
 
     <!-- Footer -->
     <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
-      <i class="fa fa-facebook-official w3-hover-opacity"></i>
-      <i class="fa fa-instagram w3-hover-opacity"></i>
-      <i class="fa fa-snapchat w3-hover-opacity"></i>
-      <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-      <i class="fa fa-twitter w3-hover-opacity"></i>
-      <i class="fa fa-linkedin w3-hover-opacity"></i>
-
       <p class="w3-medium">
-        Powered by
-        <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-text-green">w3.css</a>
+        Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a>
       </p>
     </footer>
-    <!-- End footer -->
 
   </div>
-  <!-- END PAGE CONTENT -->
+
+  <!-- SCRIPT -->
+  <script>
+    const form = document.getElementById("contactForm");
+    const successMessage = document.getElementById("successMessage");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault(); // 🚫 empêche la redirection
+
+      fetch("https://formspree.io/f/mkowngwr", {
+        method: "POST",
+        body: new FormData(form),
+        headers: { "Accept": "application/json" }
+      }).then(response => {
+        if (response.ok) {
+          successMessage.style.display = "block";
+          form.reset();
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>
