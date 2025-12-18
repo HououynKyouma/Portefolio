@@ -55,7 +55,7 @@
     <header class="w3-container w3-center w3-padding-32" id="home">
       <h1 class="w3-jumbo"><span class="w3-hide-small">I'm</span> Marwane.</h1>
       <p>Jsp.</p>
-      <img src="canvas.png" class="w3-image">
+      <img src="canvas.png" class="w3-image" alt="Header image">
     </header>
 
     <!-- About -->
@@ -88,13 +88,17 @@
         <p><textarea class="w3-input w3-padding-16" name="message" placeholder="Message" required></textarea></p>
 
         <p>
-          <button class="w3-button w3-light-grey w3-padding-large" type="submit">
+          <button id="sendBtn" class="w3-button w3-light-grey w3-padding-large" type="submit">
             <i class="fa fa-paper-plane"></i> SEND MESSAGE
           </button>
         </p>
 
         <p id="successMessage" style="display:none; color:lightgreen; font-weight:bold;">
           Message envoyé !
+        </p>
+
+        <p id="errorMessage" style="display:none; color:#ff6b6b; font-weight:bold;">
+          Erreur : message non envoyé. Réessaie.
         </p>
       </form>
     </div>
@@ -110,23 +114,40 @@
 
   <!-- SCRIPT -->
   <script>
-    const form = document.getElementById("contactForm");
-    const successMessage = document.getElementById("successMessage");
+    (function () {
+      var form = document.getElementById("contactForm");
+      var successMessage = document.getElementById("successMessage");
+      var errorMessage = document.getElementById("errorMessage");
+      var sendBtn = document.getElementById("sendBtn");
 
-    form.addEventListener("submit", function(e) {
-      e.preventDefault(); // 🚫 empêche la redirection
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
 
-      fetch("https://formspree.io/f/mkowngwr", {
-        method: "POST",
-        body: new FormData(form),
-        headers: { "Accept": "application/json" }
-      }).then(response => {
-        if (response.ok) {
-          successMessage.style.display = "block";
-          form.reset();
-        }
+        successMessage.style.display = "none";
+        errorMessage.style.display = "none";
+        sendBtn.disabled = true;
+
+        fetch("https://formspree.io/f/mkowngwr", {
+          method: "POST",
+          body: new FormData(form),
+          headers: { "Accept": "application/json" }
+        })
+        .then(function (response) {
+          if (response.ok) {
+            successMessage.style.display = "block";
+            form.reset();
+          } else {
+            errorMessage.style.display = "block";
+          }
+        })
+        .catch(function () {
+          errorMessage.style.display = "block";
+        })
+        .finally(function () {
+          sendBtn.disabled = false;
+        });
       });
-    });
+    })();
   </script>
 
 </body>
