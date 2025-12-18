@@ -15,81 +15,124 @@
     .w3-sidebar {width: 120px; background: #222;}
     #main {margin-left: 120px}
     @media only screen and (max-width: 600px) { #main {margin-left: 0} }
+
+    .project-card {
+      background-color: #111;
+      padding: 16px;
+      margin-bottom: 24px;
+      border-radius: 8px;
+    }
   </style>
 </head>
 
 <body class="w3-black">
 
-  <!-- Sidebar -->
+  <!-- Barre latérale -->
   <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
     <img src="mafioso2.png" style="width:100%" alt="Avatar">
 
     <a href="#home" class="w3-bar-item w3-button w3-padding-large w3-black">
-      <i class="fa fa-home w3-xxlarge"></i><p>HOME</p>
+      <i class="fa fa-home w3-xxlarge"></i>
+      <p>ACCUEIL</p>
     </a>
+
     <a href="#about" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-      <i class="fa fa-user w3-xxlarge"></i><p>ABOUT</p>
+      <i class="fa fa-user w3-xxlarge"></i>
+      <p>À PROPOS</p>
     </a>
-    <a href="#photos" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-      <i class="fa fa-eye w3-xxlarge"></i><p>PHOTOS</p>
+
+    <a href="#projects" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+      <i class="fa fa-folder-open w3-xxlarge"></i>
+      <p>PROJETS</p>
     </a>
+
     <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-      <i class="fa fa-envelope w3-xxlarge"></i><p>CONTACT</p>
+      <i class="fa fa-envelope w3-xxlarge"></i>
+      <p>CONTACT</p>
     </a>
   </nav>
 
-  <!-- Mobile navbar -->
+  <!-- Menu mobile -->
   <div class="w3-top w3-hide-large w3-hide-medium">
     <div class="w3-bar w3-black w3-opacity w3-center w3-small">
-      <a href="#home" class="w3-bar-item w3-button" style="width:25%">HOME</a>
-      <a href="#about" class="w3-bar-item w3-button" style="width:25%">ABOUT</a>
-      <a href="#photos" class="w3-bar-item w3-button" style="width:25%">PHOTOS</a>
+      <a href="#home" class="w3-bar-item w3-button" style="width:25%">ACCUEIL</a>
+      <a href="#about" class="w3-bar-item w3-button" style="width:25%">À PROPOS</a>
+      <a href="#projects" class="w3-bar-item w3-button" style="width:25%">PROJETS</a>
       <a href="#contact" class="w3-bar-item w3-button" style="width:25%">CONTACT</a>
     </div>
   </div>
 
-  <!-- Content -->
+  <!-- Contenu principal -->
   <div class="w3-padding-large" id="main">
 
-    <!-- Home -->
+    <!-- Accueil -->
     <header class="w3-container w3-center w3-padding-32" id="home">
-      <h1 class="w3-jumbo"><span class="w3-hide-small">I'm</span> Marwane.</h1>
-      <p>Jsp.</p>
-      <img src="canvas.png" class="w3-image" alt="Header image">
+      <h1 class="w3-jumbo"><span class="w3-hide-small">Je suis</span> Marwane.</h1>
+      <p>Portfolio scolaire</p>
+      <img src="canvas.png" class="w3-image" alt="Image principale">
     </header>
 
-    <!-- About -->
+    <!-- À propos -->
     <div class="w3-content w3-text-grey w3-padding-64" id="about">
-      <h2 class="w3-text-light-grey">My Name</h2>
+      <h2 class="w3-text-light-grey">À propos de moi</h2>
       <hr style="width:200px" class="w3-opacity">
-      <p>inshallah y'aura some text abt me</p>
 
-      <h3 class="w3-text-light-grey w3-padding-16">My Skills</h3>
+      <p>
+        Je suis élève en filière STI2D et je m’intéresse à la technologie,
+        à l’informatique et aux projets techniques.
+        Ce portfolio a été réalisé dans le cadre scolaire.
+      </p>
 
-      <p class="w3-wide">Games</p>
+      <h3 class="w3-text-light-grey w3-padding-16">Compétences</h3>
+
+      <p class="w3-wide">Programmation / Jeux</p>
       <div class="w3-white"><div class="w3-dark-grey" style="height:28px;width:80%"></div></div>
 
-      <p class="w3-wide">Website</p>
+      <p class="w3-wide">Création de sites web</p>
       <div class="w3-white"><div class="w3-dark-grey" style="height:28px;width:65%"></div></div>
 
-      <p class="w3-wide">Math</p>
+      <p class="w3-wide">Mathématiques</p>
       <div class="w3-white"><div class="w3-dark-grey" style="height:28px;width:90%"></div></div>
+    </div>
+
+    <!-- Projets -->
+    <div class="w3-padding-64 w3-content" id="projects">
+      <h2 class="w3-text-light-grey">Mes projets</h2>
+      <hr style="width:200px" class="w3-opacity">
+
+      <div class="project-card">
+        <h3 class="w3-text-light-grey">Portfolio personnel</h3>
+        <p>Site web réalisé en HTML et CSS, hébergé sur GitHub Pages.</p>
+        <img src="projet1.png" alt="Projet 1" class="w3-image">
+      </div>
+
+      <div class="project-card">
+        <h3 class="w3-text-light-grey">Projet STI2D</h3>
+        <p>Projet technique réalisé en classe dans le cadre de la filière STI2D.</p>
+        <img src="projet2.png" alt="Projet 2" class="w3-image">
+      </div>
+
+      <div class="project-card">
+        <h3 class="w3-text-light-grey">Projet à venir</h3>
+        <p>D’autres projets seront ajoutés prochainement.</p>
+        <img src="projet3.png" alt="Projet 3" class="w3-image">
+      </div>
     </div>
 
     <!-- Contact -->
     <div class="w3-content w3-text-grey w3-padding-64" id="contact">
-      <h2 class="w3-text-light-grey">Contact Me</h2>
+      <h2 class="w3-text-light-grey">Me contacter</h2>
       <hr style="width:200px" class="w3-opacity">
 
       <form id="contactForm">
-        <p><input class="w3-input w3-padding-16" type="text" name="name" placeholder="Name" required></p>
-        <p><input class="w3-input w3-padding-16" type="email" name="email" placeholder="Email" required></p>
-        <p><input class="w3-input w3-padding-16" type="text" name="subject" placeholder="Subject" required></p>
+        <p><input class="w3-input w3-padding-16" type="text" name="name" placeholder="Nom" required></p>
+        <p><input class="w3-input w3-padding-16" type="email" name="email" placeholder="Adresse e-mail" required></p>
+        <p><input class="w3-input w3-padding-16" type="text" name="subject" placeholder="Sujet" required></p>
         <p><textarea class="w3-input w3-padding-16" name="message" placeholder="Message" required></textarea></p>
 
         <p>
           <button id="sendBtn" class="w3-button w3-light-grey w3-padding-large" type="submit">
-            <i class="fa fa-paper-plane"></i> SEND MESSAGE
+            <i class="fa fa-paper-plane"></i> ENVOYER
           </button>
         </p>
 
@@ -98,21 +141,17 @@
         </p>
 
         <p id="errorMessage" style="display:none; color:#ff6b6b; font-weight:bold;">
-          Erreur : message non envoyé. Réessaie.
+          Erreur lors de l’envoi du message.
         </p>
       </form>
     </div>
 
-    <!-- Footer -->
-    <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
-      <p class="w3-medium">
-        Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a>
-      </p>
-    </footer>
+    <!-- Pied de page -->
+    <footer class="w3-content w3-padding-64 w3-text-grey"></footer>
 
   </div>
 
-  <!-- SCRIPT -->
+  <!-- Script formulaire -->
   <script>
     (function () {
       var form = document.getElementById("contactForm");
