@@ -10,10 +10,35 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <style>
-    body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
-    .w3-sidebar {width: 120px; background: #222;}
-    #main {margin-left: 120px}
-    @media only screen and (max-width: 600px) { #main {margin-left: 0} }
+    body, h1,h2,h3,h4,h5,h6 {
+      font-family: "Montserrat", sans-serif;
+    }
+
+    .w3-sidebar {
+      width: 120px;
+      background: #222;
+    }
+
+    #main {
+      margin-left: 120px;
+    }
+
+    @media only screen and (max-width: 600px) {
+      #main { margin-left: 0; }
+    }
+
+    .header-subtitle {
+      color: #aaa;
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+    .header-line {
+      width: 180px;
+      height: 2px;
+      background-color: #444;
+      margin: 16px auto 0;
+    }
 
     .project-section {
       background-color: #111;
@@ -60,9 +85,14 @@
   <div class="w3-padding-large" id="main">
 
     <!-- Accueil -->
-    <header class="w3-container w3-center w3-padding-32" id="home">
-      <h1 class="w3-jumbo">Portfolio</h1>
-      <img src="canvas.png" class="w3-image" alt="Image principale">
+    <header class="w3-container w3-center w3-padding-64" id="home">
+      <h1 class="w3-jumbo">Portefolio</h1>
+
+      <p class="header-subtitle">
+        Portefolio personnel – STI2D SIN
+      </p>
+
+      <div class="header-line"></div>
     </header>
 
     <!-- À propos -->
@@ -71,9 +101,9 @@
       <hr style="width:200px" class="w3-opacity">
 
       <p>
-        Je m'appel Marwane, je suis un élève en TSTI2D en spécialité SIN et je m’intéresse beaucoup à la programmation,
-        à l’informatique mais surtout à la cybersécurité, j'aimerai faire un BTS CIEL en alternance si possible !
-        J'espère que mon petit site vous plaira.
+        Je m'appel Marwane,je suis un élève en filière TSTI2D en SIN et je m’intéresse beaucoup à la programmation,
+        à l’informatique mais surtout en cybersécurité, j'aimerai faire un BTS CIEL en alternance si possible !
+        j'espère que mon petit site vous plaira.
       </p>
     </div>
 
@@ -82,7 +112,7 @@
       <h2 class="w3-text-light-grey">Mes projets</h2>
       <hr style="width:200px" class="w3-opacity">
 
-      <!-- Projet RoboCup -->
+      <!-- RoboCup -->
       <div class="project-section">
         <h3 class="w3-text-light-grey">Projet RoboCup – 1STI2D</h3>
 
@@ -104,9 +134,9 @@
         </div>
       </div>
 
-      <!-- Projet Portfolio -->
+      <!-- Portfolio -->
       <div class="project-section">
-        <h3 class="w3-text-light-grey">Projet Portfolio</h3>
+        <h3 class="w3-text-light-grey">Projet Portefolio</h3>
 
         <p class="w3-text-grey">
           Nous avions comme devoir de créer un site, puis d’ajouter deux pages supplémentaires (trois pages au total), 
@@ -115,9 +145,10 @@
         </p>
       </div>
 
-      <!-- Projets à venir -->
+      <!-- À venir -->
       <div class="project-section">
         <h3 class="w3-text-light-grey">Projets à venir</h3>
+
         <p class="w3-text-grey">
           D’autres projets seront ajoutés prochainement.
         </p>
@@ -129,7 +160,6 @@
       <h2 class="w3-text-light-grey">Me contacter</h2>
       <hr style="width:200px" class="w3-opacity">
 
-      <!-- Coordonnées -->
       <div class="w3-section">
         <p>
           <i class="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"></i>
@@ -137,11 +167,10 @@
         </p>
         <p>
           <i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"></i>
-          boujaadamimoun95@gmail.com
+          marwane.boujaada7@gmail.com
         </p>
       </div>
 
-      <!-- Formulaire -->
       <form id="contactForm">
         <p><input class="w3-input w3-padding-16" type="text" name="name" placeholder="Nom" required></p>
         <p><input class="w3-input w3-padding-16" type="email" name="email" placeholder="Email" required></p>
@@ -184,7 +213,3 @@
 
 </body>
 </html>
-
-
-
-
