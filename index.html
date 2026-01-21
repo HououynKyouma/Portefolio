@@ -51,6 +51,12 @@
       margin-bottom: 20px;
       border-radius: 6px;
     }
+
+    .form-message {
+      font-weight: bold;
+      margin-top: 12px;
+      display: none;
+    }
   </style>
 </head>
 
@@ -58,7 +64,7 @@
 
   <!-- Sidebar -->
   <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
-    <img src="whitecircle.png" style="width:100%" alt="Avatar">
+    <img src="mafioso2.png" style="width:100%" alt="Avatar">
 
     <a href="#home" class="w3-bar-item w3-button w3-padding-large w3-black">
       <i class="fa fa-home w3-xxlarge"></i>
@@ -101,7 +107,7 @@
       <hr style="width:200px" class="w3-opacity">
 
       <p>
-        Je m'appel Marwane,je suis un élève en filière TSTI2D en SIN et je m’intéresse beaucoup à la programmation,
+        Je m'appel Marwane,j'ai 17 ans et je suis un élève en filière technologique en STI2D, en spécialité SIN et je m’intéresse beaucoup à la programmation,
         à l’informatique mais surtout en cybersécurité, j'aimerai faire un BTS CIEL en alternance si possible !
         j'espère que mon petit site vous plaira.
       </p>
@@ -126,11 +132,11 @@
         </p>
 
         <div class="project-images">
-          <img src="chassis.jpg" class="w3-image">
-          <img src="chassisdurobot.jpg" class="w3-image">
-          <img src="chassisdurorobot.jpg" class="w3-image">
-          <img src="diagramme.jpg" class="w3-image">
-          <img src="diagramme_exigence.jpg" class="w3-image">
+          <img src="chassis.jpg" class="w3-image" alt="Châssis">
+          <img src="chassisdurobot.jpg" class="w3-image" alt="Robot">
+          <img src="chassisdurorobot.jpg" class="w3-image" alt="Châssis assemblé">
+          <img src="diagramme.jpg" class="w3-image" alt="Diagramme">
+          <img src="diagramme_exigence.jpg" class="w3-image" alt="Diagramme exigence">
         </div>
       </div>
 
@@ -139,8 +145,8 @@
         <h3 class="w3-text-light-grey">Projet Portefolio</h3>
 
         <p class="w3-text-grey">
-          Nous avions comme devoir de créer un site, puis d’ajouter deux pages supplémentaires (trois pages au total), 
-          et d'y ajouter du CSS pour rendre le site plus agréable à voir. Enfin, nous devions utiliser des templates, 
+          Nous avions comme devoir de créer un site, puis d’ajouter deux pages supplémentaires (trois pages au total),
+          et d'y ajouter du CSS pour rendre le site plus agréable à voir. Enfin, nous devions utiliser des templates,
           ce sont des modèles qu'on peut utiliser pour créer un portfolio, comme le miens ici présent que vous êtes en train de lire !
         </p>
       </div>
@@ -171,20 +177,25 @@
         </p>
       </div>
 
-      <form id="contactForm">
+      <!-- IMPORTANT: novalidate pour éviter le bug au collage -->
+      <form id="contactForm" novalidate>
         <p><input class="w3-input w3-padding-16" type="text" name="name" placeholder="Nom" required></p>
-        <p><input class="w3-input w3-padding-16" type="email" name="email" placeholder="Email" required></p>
+        <p><input id="emailInput" class="w3-input w3-padding-16" type="text" name="email" placeholder="Email" required></p>
         <p><input class="w3-input w3-padding-16" type="text" name="subject" placeholder="Sujet" required></p>
         <p><textarea class="w3-input w3-padding-16" name="message" placeholder="Message" required></textarea></p>
 
         <p>
-          <button class="w3-button w3-light-grey w3-padding-large" type="submit">
+          <button id="sendBtn" class="w3-button w3-light-grey w3-padding-large" type="submit">
             <i class="fa fa-paper-plane"></i> ENVOYER
           </button>
         </p>
 
-        <p id="successMessage" style="display:none; color:lightgreen; font-weight:bold;">
+        <p id="successMessage" class="form-message" style="color:lightgreen;">
           Message envoyé !
+        </p>
+
+        <p id="errorMessage" class="form-message" style="color:#ff6b6b;">
+          Erreur : vérifie les champs (surtout l’email).
         </p>
       </form>
     </div>
@@ -192,27 +203,72 @@
   </div>
 
   <script>
-    const form = document.getElementById("contactForm");
-    const successMessage = document.getElementById("successMessage");
+    (function () {
+      const form = document.getElementById("contactForm");
+      const emailInput = document.getElementById("emailInput");
+      const sendBtn = document.getElementById("sendBtn");
+      const successMessage = document.getElementById("successMessage");
+      const errorMessage = document.getElementById("errorMessage");
 
-    form.addEventListener("submit", function(e) {
-      e.preventDefault();
+      function hideMessages() {
+        successMessage.style.display = "none";
+        errorMessage.style.display = "none";
+      }
 
-      fetch("https://formspree.io/f/mkowngwr", {
-        method: "POST",
-        body: new FormData(form),
-        headers: { "Accept": "application/json" }
-      }).then(response => {
-        if (response.ok) {
-          successMessage.style.display = "block";
-          form.reset();
-        }
+      function isValidEmail(email) {
+        // validation simple mais fiable pour un formulaire de site
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      }
+
+      // Fix principal: au collage, on enlève les espaces/retours à la ligne
+      ["paste", "blur"].forEach(evt => {
+        emailInput.addEventListener(evt, () => {
+          emailInput.value = emailInput.value.trim();
+        });
       });
-    });
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        hideMessages();
+
+        // Trim tous les champs pour éviter les espaces cachés
+        const fd = new FormData(form);
+        for (const [key, value] of fd.entries()) {
+          if (typeof value === "string") fd.set(key, value.trim());
+        }
+
+        const email = (fd.get("email") || "").toString().trim();
+
+        // Vérifs simples
+        if (!fd.get("name") || !email || !fd.get("subject") || !fd.get("message") || !isValidEmail(email)) {
+          errorMessage.style.display = "block";
+          return;
+        }
+
+        sendBtn.disabled = true;
+
+        fetch("https://formspree.io/f/mkowngwr", {
+          method: "POST",
+          body: fd,
+          headers: { "Accept": "application/json" }
+        })
+        .then(response => {
+          if (response.ok) {
+            successMessage.style.display = "block";
+            form.reset();
+          } else {
+            errorMessage.style.display = "block";
+          }
+        })
+        .catch(() => {
+          errorMessage.style.display = "block";
+        })
+        .finally(() => {
+          sendBtn.disabled = false;
+        });
+      });
+    })();
   </script>
 
 </body>
 </html>
-
-
-
