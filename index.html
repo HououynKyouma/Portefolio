@@ -1,125 +1,181 @@
 <!DOCTYPE html>
-<html lang="fr">
-<head>
-  <title>Portfolio</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Indique au navigateur que le document est en HTML5 -->
 
+<html lang="fr">
+<!-- Début de la page HTML + langue principale (français) -->
+
+<head>
+  <!-- "Head" = informations techniques (non visibles) -->
+
+  <title>Portfolio</title>
+  <!-- Titre affiché dans l’onglet du navigateur -->
+
+  <meta charset="UTF-8">
+  <!-- Encodage UTF-8 : permet d'afficher correctement les accents -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Rend le site adapté aux téléphones (responsive) -->
+
+  <!-- Import du framework W3.CSS (classes w3-...) -->
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+
+  <!-- Import de la police Montserrat -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+
+  <!-- Import des icônes Font Awesome (fa fa-home, fa fa-envelope, etc.) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <style>
+    /* ======== CSS : apparence du site ======== */
+
+    /* Applique la police Montserrat à tout le texte (body + titres) */
     body, h1,h2,h3,h4,h5,h6 {
       font-family: "Montserrat", sans-serif;
     }
 
+    /* Style de la barre latérale (sidebar) */
     .w3-sidebar {
-      width: 120px;
-      background: #222;
+      width: 120px;        /* Largeur fixe à gauche */
+      background: #222;    /* Couleur de fond gris foncé */
     }
 
+    /* Le contenu principal est décalé pour ne pas passer sous la sidebar */
     #main {
       margin-left: 120px;
     }
 
+    /* Responsive : sur petit écran (moins de 600px), on enlève le décalage */
     @media only screen and (max-width: 600px) {
       #main { margin-left: 0; }
     }
 
+    /* Sous-titre sous le titre principal */
     .header-subtitle {
-      color: #aaa;
-      font-size: 18px;
-      margin-top: 10px;
+      color: #aaa;       /* Gris clair */
+      font-size: 18px;   /* Taille du texte */
+      margin-top: 10px;  /* Espace au-dessus */
     }
 
+    /* Petite ligne décorative sous le sous-titre */
     .header-line {
-      width: 180px;
-      height: 2px;
-      background-color: #444;
-      margin: 16px auto 0;
+      width: 180px;              /* Longueur de la ligne */
+      height: 2px;               /* Épaisseur */
+      background-color: #444;    /* Couleur gris foncé */
+      margin: 16px auto 0;       /* Centré + espace au-dessus */
     }
 
+    /* Bloc de projet (carte sombre avec bords arrondis) */
     .project-section {
-      background-color: #111;
-      padding: 24px;
-      margin-bottom: 48px;
-      border-radius: 10px;
+      background-color: #111; /* Fond */
+      padding: 24px;          /* Espace intérieur */
+      margin-bottom: 48px;    /* Espace entre les blocs */
+      border-radius: 10px;    /* Coins arrondis */
     }
 
+    /* Style des images dans la section projets */
     .project-images img {
-      margin-bottom: 20px;
-      border-radius: 6px;
+      margin-bottom: 20px; /* Espace entre les images */
+      border-radius: 6px;  /* Coins arrondis des images */
     }
 
+    /* Message de succès/erreur sous le formulaire (caché par défaut) */
     .form-message {
-      font-weight: bold;
-      margin-top: 12px;
-      display: none;
+      font-weight: bold;   /* Texte en gras */
+      margin-top: 12px;    /* Espace au-dessus */
+      display: none;       /* Caché au début, on l'affiche en JS */
     }
   </style>
 </head>
 
 <body class="w3-black">
+<!-- w3-black = fond noir sur toute la page -->
 
-  <!-- Sidebar -->
+  <!-- ======== Sidebar (menu à gauche) ======== -->
   <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
-    <img src="whitecircle.png" style="width:100%" alt="Avatar">
+    <!-- w3-hide-small = la sidebar disparaît sur téléphone -->
+    <!-- w3-center = contenu centré -->
 
+    <!-- Image en haut de la sidebar -->
+    <img src="whitecircle.png" style="width:100%" alt="Avatar">
+    <!-- width:100% = prend toute la largeur de la sidebar -->
+
+    <!-- Lien vers la section ACCUEIL (ancre #home) -->
     <a href="#home" class="w3-bar-item w3-button w3-padding-large w3-black">
+      <!-- Icône maison -->
       <i class="fa fa-home w3-xxlarge"></i>
       <p>ACCUEIL</p>
     </a>
 
+    <!-- Lien vers la section À PROPOS -->
     <a href="#about" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
       <i class="fa fa-user w3-xxlarge"></i>
       <p>À PROPOS</p>
     </a>
 
+    <!-- Lien vers la section PROJETS -->
     <a href="#projects" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
       <i class="fa fa-folder-open w3-xxlarge"></i>
       <p>PROJETS</p>
     </a>
 
+    <!-- Lien vers la section CONTACT -->
     <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
       <i class="fa fa-envelope w3-xxlarge"></i>
       <p>CONTACT</p>
     </a>
   </nav>
 
-  <!-- Contenu principal -->
+  <!-- ======== Contenu principal ======== -->
   <div class="w3-padding-large" id="main">
+    <!-- id="main" = utilisé en CSS pour le décalage margin-left -->
 
-    <!-- Accueil -->
+    <!-- ======== Section ACCUEIL ======== -->
     <header class="w3-container w3-center w3-padding-64" id="home">
+      <!-- id="home" = destination du lien href="#home" -->
+
       <h1 class="w3-jumbo">Portfolio</h1>
+      <!-- w3-jumbo = très gros titre -->
 
       <p class="header-subtitle">
         Portfolio personnel – TSTI2D2 SIN
       </p>
+      <!-- Sous-titre stylé avec .header-subtitle -->
 
       <div class="header-line"></div>
+      <!-- Ligne décorative sous le sous-titre -->
     </header>
 
-    <!-- À propos -->
+    <!-- ======== Section À PROPOS ======== -->
     <div class="w3-content w3-text-grey w3-padding-64" id="about">
+      <!-- w3-content limite la largeur pour la lisibilité -->
+      <!-- w3-text-grey met le texte en gris -->
+      <!-- id="about" = destination du lien href="#about" -->
+
       <h2 class="w3-text-light-grey">À propos</h2>
+      <!-- Titre en gris clair -->
+
       <hr style="width:200px" class="w3-opacity">
+      <!-- Barre horizontale courte (200px) + transparente -->
 
       <p>
         Je m'appel Marwane, j'ai 17 ans et je suis un élève en filière technologique en STI2D, en spécialité SIN et je m’intéresse beaucoup à la programmation,
         à l’informatique mais surtout en cybersécurité, j'aimerai faire un BTS CIEL en alternance si possible !
         J'espère que mon petit site vous plaira.
       </p>
+      <!-- Texte de présentation -->
     </div>
 
-    <!-- Projets -->
+    <!-- ======== Section PROJETS ======== -->
     <div class="w3-padding-64 w3-content" id="projects">
+      <!-- id="projects" = destination du lien href="#projects" -->
+
       <h2 class="w3-text-light-grey">Mes projets</h2>
       <hr style="width:200px" class="w3-opacity">
 
-      <!-- RoboCup -->
+      <!-- ===== Projet RoboCup ===== -->
       <div class="project-section">
+        <!-- .project-section = carte projet -->
+
         <h3 class="w3-text-light-grey">Projet RoboCup – 1STI2D</h3>
 
         <p class="w3-text-grey">
@@ -131,6 +187,7 @@
           que le robot puisse réaliser les différentes étapes de la RoboCup.
         </p>
 
+        <!-- Images du projet -->
         <div class="project-images">
           <img src="chassis.jpg" class="w3-image" alt="Châssis">
           <img src="chassisdurobot.jpg" class="w3-image" alt="Robot">
@@ -140,7 +197,7 @@
         </div>
       </div>
 
-      <!-- Portfolio -->
+      <!-- ===== Projet Portfolio ===== -->
       <div class="project-section">
         <h3 class="w3-text-light-grey">Projet Portfolio</h3>
 
@@ -151,7 +208,7 @@
         </p>
       </div>
 
-      <!-- À venir -->
+      <!-- ===== Projets à venir ===== -->
       <div class="project-section">
         <h3 class="w3-text-light-grey">Projets à venir</h3>
 
@@ -161,11 +218,14 @@
       </div>
     </div>
 
-    <!-- Contact -->
+    <!-- ======== Section CONTACT ======== -->
     <div class="w3-content w3-text-grey w3-padding-64" id="contact">
+      <!-- id="contact" = destination du lien href="#contact" -->
+
       <h2 class="w3-text-light-grey">Me contacter</h2>
       <hr style="width:200px" class="w3-opacity">
 
+      <!-- Coordonnées visibles -->
       <div class="w3-section">
         <p>
           <i class="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"></i>
@@ -177,93 +237,121 @@
         </p>
       </div>
 
-      <!-- IMPORTANT: novalidate pour éviter le bug au collage -->
+      <!-- Formulaire de contact -->
+      <!-- novalidate = désactive la validation automatique du navigateur (évite bug copier-coller email) -->
       <form id="contactForm" novalidate>
+
+        <!-- Champ Nom -->
+        <!-- name="name" : clé utilisée dans FormData pour envoyer au serveur -->
         <p><input class="w3-input w3-padding-16" type="text" name="name" placeholder="Nom" required></p>
+
+        <!-- Champ Email -->
+        <!-- id="emailInput" : utilisé par le JavaScript pour corriger le collage -->
         <p><input id="emailInput" class="w3-input w3-padding-16" type="text" name="email" placeholder="Email" required></p>
+
+        <!-- Champ Sujet -->
         <p><input class="w3-input w3-padding-16" type="text" name="subject" placeholder="Sujet" required></p>
+
+        <!-- Champ Message -->
         <p><textarea class="w3-input w3-padding-16" name="message" placeholder="Message" required></textarea></p>
 
+        <!-- Bouton envoyer -->
+        <!-- id="sendBtn" : utilisé par le JS pour désactiver le bouton pendant l'envoi -->
         <p>
           <button id="sendBtn" class="w3-button w3-light-grey w3-padding-large" type="submit">
             <i class="fa fa-paper-plane"></i> ENVOYER
           </button>
         </p>
 
+        <!-- Message de succès -->
         <p id="successMessage" class="form-message" style="color:lightgreen;">
           Message envoyé !
         </p>
 
+        <!-- Message d'erreur -->
         <p id="errorMessage" class="form-message" style="color:#ff6b6b;">
           Erreur : vérifie les champs (surtout l’email).
         </p>
       </form>
     </div>
-
   </div>
 
   <script>
-    (function () {
-      const form = document.getElementById("contactForm");
-      const emailInput = document.getElementById("emailInput");
-      const sendBtn = document.getElementById("sendBtn");
-      const successMessage = document.getElementById("successMessage");
-      const errorMessage = document.getElementById("errorMessage");
+    /* ======== JavaScript : gestion du formulaire sans changer de page ======== */
 
+    (function () {
+      /* Récupération des éléments HTML par leur id */
+      const form = document.getElementById("contactForm");         // le formulaire
+      const emailInput = document.getElementById("emailInput");    // champ email
+      const sendBtn = document.getElementById("sendBtn");          // bouton envoyer
+      const successMessage = document.getElementById("successMessage"); // message succès
+      const errorMessage = document.getElementById("errorMessage");     // message erreur
+
+      /* Cache les messages (succès et erreur) */
       function hideMessages() {
         successMessage.style.display = "none";
         errorMessage.style.display = "none";
       }
 
+      /* Vérifie si l'email a une forme correcte (ex: a@b.com) */
       function isValidEmail(email) {
-        // validation simple mais fiable pour un formulaire de site
         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
       }
 
-      // Fix principal: au collage, on enlève les espaces/retours à la ligne
+      /* Fix du collage : enlève espaces et retours à la ligne quand on colle/quitte le champ */
       ["paste", "blur"].forEach(evt => {
         emailInput.addEventListener(evt, () => {
           emailInput.value = emailInput.value.trim();
         });
       });
 
+      /* Quand on clique sur "ENVOYER" (submit du formulaire) */
       form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        hideMessages();
+        e.preventDefault(); // empêche la redirection / rechargement
+        hideMessages();     // cache les messages avant un nouvel essai
 
-        // Trim tous les champs pour éviter les espaces cachés
+        /* Récupère tous les champs du formulaire */
         const fd = new FormData(form);
+
+        /* Nettoie toutes les valeurs (supprime espaces cachés) */
         for (const [key, value] of fd.entries()) {
           if (typeof value === "string") fd.set(key, value.trim());
         }
 
+        /* Récupère l'email nettoyé */
         const email = (fd.get("email") || "").toString().trim();
 
-        // Vérifs simples
+        /* Vérifie que tous les champs sont remplis + email valide */
         if (!fd.get("name") || !email || !fd.get("subject") || !fd.get("message") || !isValidEmail(email)) {
-          errorMessage.style.display = "block";
-          return;
+          errorMessage.style.display = "block"; // affiche l'erreur
+          return; // stop l'envoi
         }
 
+        /* Désactive le bouton pendant l'envoi pour éviter double clic */
         sendBtn.disabled = true;
 
+        /* Envoi du formulaire vers Formspree (serveur) */
         fetch("https://formspree.io/f/mkowngwr", {
           method: "POST",
           body: fd,
-          headers: { "Accept": "application/json" }
+          headers: { "Accept": "application/json" } // on demande une réponse JSON
         })
         .then(response => {
           if (response.ok) {
-            successMessage.style.display = "block";
-            form.reset();
+            /* Si l'envoi marche */
+            successMessage.style.display = "block"; // affiche succès
+            form.reset(); // vide les champs
           } else {
+            /* Si le serveur répond mais refuse */
             errorMessage.style.display = "block";
           }
         })
         .catch(() => {
+          /* Si erreur réseau (pas d'internet, etc.) */
           errorMessage.style.display = "block";
         })
         .finally(() => {
+          /* Dans tous les cas : réactive le bouton */
           sendBtn.disabled = false;
         });
       });
@@ -272,6 +360,3 @@
 
 </body>
 </html>
-
-
-
